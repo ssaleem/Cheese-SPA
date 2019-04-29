@@ -1,13 +1,14 @@
-// const API = 'cheeses';
+const API = 'cheeses';
 const BAD_REQUEST = 400;  //caused by form validation errors at server side
 
+// Get all cheeses by default, Get cheese by id if cheeseId provided
 export function getCheeses(cheeseId='') {
-  return fetch(`/cheeses/${cheeseId}`)
+  return fetch(`/${API}/${cheeseId}`)
     .then(res => res.json());
 }
 
 export function addCheese(cheese) {
-  return fetch("/cheeses/", {
+  return fetch(`/${API}/`, {
     method: 'post',
     headers: {
         'Accept': 'application/json',
@@ -23,7 +24,7 @@ export function addCheese(cheese) {
 }
 
 export function updateCheese(cheeseId, cheese) {
-  return fetch(`/cheeses/${cheeseId}`, {
+  return fetch(`/${API}/${cheeseId}`, {
     method: 'put',
     headers: {
         'Accept': 'application/json',
@@ -35,6 +36,13 @@ export function updateCheese(cheeseId, cheese) {
   .then(result => handleResponse(result));
 }
 
+export function deleteCheese(cheeseId) {
+  return fetch(`/${API}/${cheeseId}`, {
+    method: 'delete'
+  })
+  // .then(res => console.log(res) )
+}
+
 function handleResponse(response) {
   console.log(response);
   let formErrors = [];
@@ -44,5 +52,8 @@ function handleResponse(response) {
       formErrors[errors[i].field] = errors[i].defaultMessage;
     }
     return Promise.reject(formErrors);
+  }
+  else {
+    return Promise.resolve(response);
   }
 }
