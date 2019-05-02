@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Cheese-SPA/static/css/main.5db3891e.chunk.css",
+    "main.js": "/Cheese-SPA/static/js/main.ae29c983.chunk.js",
+    "main.js.map": "/Cheese-SPA/static/js/main.ae29c983.chunk.js.map",
+    "runtime~main.js": "/Cheese-SPA/static/js/runtime~main.b9823201.js",
+    "runtime~main.js.map": "/Cheese-SPA/static/js/runtime~main.b9823201.js.map",
+    "static/js/2.8fb29255.chunk.js": "/Cheese-SPA/static/js/2.8fb29255.chunk.js",
+    "static/js/2.8fb29255.chunk.js.map": "/Cheese-SPA/static/js/2.8fb29255.chunk.js.map",
+    "index.html": "/Cheese-SPA/index.html",
+    "precache-manifest.1f50f677095b0683f587d191d9bd56d8.js": "/Cheese-SPA/precache-manifest.1f50f677095b0683f587d191d9bd56d8.js",
+    "service-worker.js": "/Cheese-SPA/service-worker.js",
+    "static/css/main.5db3891e.chunk.css.map": "/Cheese-SPA/static/css/main.5db3891e.chunk.css.map"
+  }
+}
