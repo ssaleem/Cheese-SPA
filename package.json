@@ -1,6 +1,5 @@
 {
   "name": "cheese-spa",
-  "homepage": "https://ssaleem.github.io/Cheese-SPA",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
