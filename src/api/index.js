@@ -1,6 +1,7 @@
 // export const API_URL = 'https://cheesemvc-api.herokuapp.com';
-export const API_URL =
-  'http://cheese-api-lb-1176575407.us-east-1.elb.amazonaws.com';
+// export const API_URL =
+//   'http://cheese-api-lb-1176575407.us-east-1.elb.amazonaws.com';
+export const API_URL = `${process.env.REACT_APP_API_DOMAIN}`;
 export const BAD_REQUEST = 400; //caused by form validation errors at server side
 
 export function handleResponse (response) {
