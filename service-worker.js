@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/Cheese-SPA/precache-manifest.a36ed3eb7f1d9e593519ea8e6210be92.js"
+  "/Cheese-SPA/precache-manifest.931617a7c93bdbf2c32210b6a073a1a9.js"
 );
 
 self.addEventListener('message', (event) => {
