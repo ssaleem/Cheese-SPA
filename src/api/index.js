@@ -1,4 +1,4 @@
-export const API_URL = `${process.env.REACT_APP_API_DOMAIN}`;
+export const API_URL = `${process.env.REACT_APP_API_HEROKU}`;
 export const BAD_REQUEST = 400; //caused by form validation errors at server side
 
 export function handleResponse (response) {
