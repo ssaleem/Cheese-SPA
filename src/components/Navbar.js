@@ -33,7 +33,7 @@ const NavBar = props => {
     <AppBar color="primary" className={classes.appBar}>
 
       <Typography variant="h4" noWrap className={classes.toolbarTitle}>
-        <NavLink to="/">Cheese-MVC</NavLink>
+        <NavLink to="/">Cheese-SPA</NavLink>
       </Typography>
 
       {links.map ((link, index) => (

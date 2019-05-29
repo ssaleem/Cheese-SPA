@@ -16,7 +16,7 @@ export function addCategory (category) {
     body: JSON.stringify (category),
   })
     .then (res => {
-      console.log (res.headers.get ('Location'));
+      // console.log (res.headers.get ('Location'));
       return res.json ();
     })
     .then (result => handleResponse (result));

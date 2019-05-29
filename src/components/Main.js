@@ -90,8 +90,8 @@ class Main extends React.Component {
           
         <Paper className={classes.root} elevation={1}>
           <Typography component="h3">
-              This is a single page application that employs <a href="https://cheesemvc-api.herokuapp.com/swagger-ui.html#" target="_blank" rel="noopener noreferrer">Cheese-API</a> to perform CRUD operations. 
-              <a href="https://cheesemvc-api.herokuapp.com/swagger-ui.html#" target="_blank" rel="noopener noreferrer">Cheese-API</a> is a REST API written in Spring Boot.
+              This is a single page application that employs <a href="https://cheesemvc-api.herokuapp.com/swagger-ui.html#" target="_blank" rel="noopener noreferrer">Cheeses-API</a> to perform CRUD operations on various resources. 
+              <a href="https://cheesemvc-api.herokuapp.com/swagger-ui.html#" target="_blank" rel="noopener noreferrer">Cheeses-API</a> is a REST API written in Spring Boot.
           </Typography>
           <Button size="large" variant="contained" color="secondary" className={classes.add} onClick={()=> this.showForm('toAddCheeseForm')}>Add Cheese</Button>
           <Button size="large" variant="contained" color="secondary" className={classes.add} onClick={()=> this.showForm('toAddCategoryForm')}>Add Category</Button>
