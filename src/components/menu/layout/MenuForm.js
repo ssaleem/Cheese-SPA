@@ -27,6 +27,7 @@ const styles = theme => ({
 });
 
 class MenuForm extends React.Component {
+  abortController = new window.AbortController ();
   constructor (props) {
     super (props);
     this.state = {
@@ -39,10 +40,14 @@ class MenuForm extends React.Component {
   }
 
   componentDidMount () {
-    getCheeses ().then (
-      result => this.setState ({cheeses: result}),
-      error => this.setState ({error})
-    );
+    getCheeses ('', this.abortController.signal)
+      .then (result => this.setState ({cheeses: result}))
+      .catch (error => {
+        if (error.name === 'AbortError') {
+          // console.log ('abort before fetch completed');
+          return; // form was closed before categories could be fetched, so just return
+        }
+      });
   }
 
   handleChange = name => event => {
@@ -73,6 +78,10 @@ class MenuForm extends React.Component {
         .then (() => this.handleClose (true))
         .catch (errors => this.setState ({error: errors}));
     }
+  };
+
+  componentWillUnmount = () => {
+    this.abortController.abort ();
   };
 
   render () {
