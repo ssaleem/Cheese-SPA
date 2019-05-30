@@ -29,6 +29,8 @@ const styles = () => ({
 const ratings = [1, 2, 3, 4, 5];
 
 class CheeseForm extends React.Component {
+  abortController = new window.AbortController ();
+
   constructor (props) {
     super (props);
     this.state = {
@@ -52,7 +54,14 @@ class CheeseForm extends React.Component {
         categoryId: cheese.category.id,
       });
     }
-    getCategories ().then (categories => this.setState ({categories}));
+    getCategories (this.abortController.signal)
+      .then (categories => this.setState ({categories}))
+      .catch (error => {
+        if (error.name === 'AbortError') {
+          // console.log ('abort before fetch completed');
+          return; // form was closed before categories could be fetched, so just return
+        }
+      });
   }
 
   handleChange = name => event => {
@@ -83,6 +92,10 @@ class CheeseForm extends React.Component {
         .then (() => this.handleClose (true))
         .catch (errors => this.setState ({error: errors}));
     }
+  };
+
+  componentWillUnmount = () => {
+    this.abortController.abort ();
   };
 
   render () {

@@ -3,7 +3,7 @@ import {API_URL, handleResponse} from './index';
 const RESOURCE = 'cheeses';
 
 // Get all cheeses by default, Get cheese by id if cheeseId provided
-export function getCheeses (cheeseId = '') {
+export function getCheeses (cheeseId = '',abortSignal = null) {
   return fetch (`${API_URL}/${RESOURCE}/${cheeseId}`).then (res => res.json ());
 }
 
