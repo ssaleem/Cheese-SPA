@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cheese-SPA
 
-## Available Scripts
+This is a single page application that provides UI to perform CRUD(Create, Read, Update, Delete) operations on various resources by making AJAX calls to a [Cheeses REST API](https://cheesemvc-api.herokuapp.com/swagger-ui.html#).
 
-In the project directory, you can run:
+![Layout across different screens](img/app.gif)
 
-### `npm start`
+## Contents
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Features](#features)
+- [Built with](#built-with)
+- [Live Version](#live-version)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+### Responsive Design
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Material UI library' React components are used to build the UI and provide responsive layout acrosss various screen sizes.
 
-### `npm run build`
+### Asynchronicity and Error Handling
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Cheeses, Categories and Menu lists are fetched asynchronously and loaded in correponding views. For list loading errors or empty lists, a message is displayed that notifies the user that the data cannot be loaded so that there are no negative repercussions to the UI.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- Form validation is performed at the server side by Cheeses REST API. Appropriate error messages are populated in the form UI based on feedback form the server.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Form Validation Errors](img/categoryError.gif)
 
-### `npm run eject`
+- The forms to add new Cheese and Menu make AJAX requests to set component state and populate drop down select fields in the forms. This asynchronous data fecthing may result in calling `setState()` on a form component that was closed before the AJAX call was completed which would lead to an error. To handle this situation gracefully, `AbortController.abort()` is used upon component unmounting which sends an abort signal to AJAX calls in progress.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Create React App](https://github.com/facebookincubator/create-react-app) - Creates an environment to bootstrap React applications.
+- [React Router](https://reacttraining.com/react-router/web) - A collection of navigational components that compose declaratively with React application.
+- [prop-types](https://www.npmjs.com/package/prop-types) - Runtime type checking for React props.
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - A JavaScript interface for asynchronously fetching resources.
+- [AbortController API](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) - A JavaScript interface representing a controller object that allows to abort one or more DOM requests as and when desired.
+- [Material UI](https://material-ui.com/) - MIT-licensed open source React components for faster web development.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Live Version
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The live version of this app can be explored at either of the following links.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [Github Deployment](https://ssaleem.github.io/Cheese-SPA)
+- [Netlify Deployment](https://cheese-spa.netlify.com/)
